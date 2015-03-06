@@ -1,10 +1,14 @@
 package linkedlist.sort;
 
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Vector;
 
+/**
+ * Linkedlist class to store data from the nodes
+ * we made before, lets the user
+ * remove, add, clear, sort, size, empty
+ * and insert.
+ */
 public class LinkedList
 {
 	//store a reference (pointer) to the first node in our list
@@ -133,11 +137,24 @@ public class LinkedList
 		}
 	}
 	
+	/**
+	 *Clears the list so the user can start fresh
+	 *Its also used inside the sort method when
+	 *we remake the new list.
+	 */
 	public void clearList()
 	{
 		head = null;
 	}
 	
+	/**
+	 * Sorts the data by converting the linked list
+	 * into a array list then loop over the nodes 
+	 * added the data to the arraylist. The data is 
+	 * sorted using collections.sort
+	 * We clear the old linkedlist and then add it
+	 *  into a linked list using the add method
+	 */
 	public void sort()
 	{
 		ArrayList<String> data = new ArrayList<String>();
@@ -214,6 +231,7 @@ public class LinkedList
 		}
 	}
 	
+	@SuppressWarnings("rawtypes")
 	private static class Node implements Comparable
 	{
 		private Object data;
@@ -225,21 +243,25 @@ public class LinkedList
 			this.next = next;
 		}
 
+		@SuppressWarnings("unused")
 		public Object getData()
 		{
 			return data;
 		}
 
+		@SuppressWarnings("unused")
 		public void setData(Object data)
 		{
 			this.data = data;
 		}
 
+		@SuppressWarnings("unused")
 		public Node getNext()
 		{
 			return next;
 		}
 
+		@SuppressWarnings("unused")
 		public void setNext(Node next)
 		{
 			this.next = next;
@@ -251,6 +273,11 @@ public class LinkedList
 			return "Node [data=" + data + ", next=" + next + "]";
 		}
 		
+		/**
+		 * Override section to compare nodes to other nodes
+		 * taken from the comparable class.
+		 */
+		@Override
 		public int compareTo(Object other)
 		{
 			Node otherNode = (Node)other;
